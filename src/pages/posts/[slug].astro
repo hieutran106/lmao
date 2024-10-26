@@ -1,31 +1,37 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import {readAllJson} from './utils.ts';
-import type { ImageMetadata } from 'astro';
-import { Image } from 'astro:assets';
+import Layout from "../../layouts/Layout.astro";
+import { readAllJson } from "./utils.ts";
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
 
 export function getStaticPaths() {
-    const posts = readAllJson();
-    return posts.map(p => ({
-        params: {
-            slug: p.slug
-        },
-        props: {
-            title: p.title,
-            content: p.content,
-            imagePath: p.imagePath
-        }
-    }))
+  const posts = readAllJson();
+  return posts.map((p) => ({
+    params: {
+      slug: p.slug,
+    },
+    props: {
+      title: p.title,
+      content: p.content,
+      imagePath: p.imagePath,
+    },
+  }));
 }
 const { title, content, imagePath } = Astro.props;
-const images = import.meta.glob<{ default: ImageMetadata }>('/src/pages/posts/2024/*.{jpeg,jpg,png,gif}');
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/pages/posts/2024/*.{jpeg,jpg,png,gif}"
+);
 console.log(images);
 
 const effectiveImagePath = `/src/pages/posts/2024/${imagePath}`;
-if (!images[effectiveImagePath]) throw new Error(`"${effectiveImagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`);
+if (!images[effectiveImagePath])
+  throw new Error(
+    `"${effectiveImagePath}" does not exist in glob: "src/assets/*.{jpeg,jpg,png,gif}"`
+  );
 ---
+
 <Layout title={title}>
-<h1>{title}</h1>
-<Image src={images[effectiveImagePath]()} alt={content} />
-<p>{content}</p>
+  <h1>{title}</h1>
+  <Image src={images[effectiveImagePath]()} alt={content} />
+  <p>{content}</p>
 </Layout>

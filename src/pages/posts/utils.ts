@@ -1,5 +1,5 @@
-import * as fs from "fs";
-import * as path from "path";
+import * as fs from "node:fs";
+import * as path from "node:path";
 
 export function readAllJson() {
   console.log("Current working directory:", process.cwd());
@@ -19,7 +19,7 @@ export function readAllJson() {
         // Add the parsed data to the array
         posts.push(parsedData);
       } catch (error) {
-        console.error(`Error reading or parsing ${file}: ${error.message}`);
+        console.error(`Error reading or parsing ${file}: ${error}`);
       }
     });
   return posts;
