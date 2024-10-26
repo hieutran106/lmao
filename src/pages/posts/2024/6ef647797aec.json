@@ -1,0 +1,9 @@
+{
+    "hash": "6ef647797aec",
+    "contentRaw": "App Settings Provide an allowlist of URIs that are valid during login and logout redirects Redirect URI Allowlist http:| /localhost:4200/ Provide a comma-separated list of URIs. Each URI must start with URI scheme. Example URI Schemes: https:|/, custom-scheme:| /",
+    "content": "App Settings Provide an allowlist of URIs that are valid during login and logout redirects Redirect URI Allowlist http:| /localhost:4200/ Provide a comma-separated list of URIs. Each URI must start with URI scheme. Example URI Schemes: https:|/, custom-scheme:| /",
+    "title": "App Settings Provide an allowlist of",
+    "slug": "app-settings-provide-an-allowlist-of-6ef647797aec",
+    "originalImagePath": "./images\\sso_config2.PNG",
+    "imagePath": "6ef647797aec.png"
+}
