@@ -24,4 +24,3 @@ pnpm-debug.log*
 .idea/
 images/
 venv/
-package-lock.json
